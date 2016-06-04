@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 import com.example.edu.weatherdemo.model.City;
 import com.example.edu.weatherdemo.model.Country;
 import com.example.edu.weatherdemo.model.Province;
@@ -88,8 +90,8 @@ public class CoolWeatherDB {
      */
     public List<City> loadCitys(int provinceId){
         List<City> list=new ArrayList<>();
-        Cursor cursor=db.query("City",null,"province_id= ?"
-                ,new String[]{String.valueOf(provinceId)},null,null,null);
+        Cursor cursor=db.query("City",null,"province_id=?"
+                ,new String[]{provinceId+""},null,null,null);
        while (cursor.moveToNext()){
            City city=new City();
            city.setId(cursor.getInt(cursor.getColumnIndex("id")));
@@ -112,13 +114,13 @@ public class CoolWeatherDB {
         db.insert("Country",null,values);
     }
     /**
-     * 从数据库中某市的下的所有信息
+     * 从数据库中某市的县的所有信息
      */
     public List<Country> loadCoutrys(int cityId){
         List<Country>list=new ArrayList<>();
         Cursor cursor=db.query("Country",null,"city_id=?"
-                ,new String[]{String.valueOf(cityId)},null,null,null);
-
+                ,new String[]{cityId+""},null,null,null);
+      Log.i("TAG","aaaa:::"+cursor);
         while (cursor.moveToNext()){
             Country country=new Country();
             country.setId(cursor.getInt(cursor.getColumnIndex("id")));
