@@ -5,3 +5,9 @@ i am student day day up
 >希望找份实习工作，谢谢
 
 
+**运行效果如下：**
+
+
+
+ ![ABC](https://github.com/songshuilin/WeatherDemo/blob/master/c.gif?raw=true)![ABC](https://github.com/songshuilin/WeatherDemo/blob/master/d.gif?raw=true) 
+
